@@ -8,6 +8,7 @@ This script requires that 'requests' and 'bs4' be installed within the
 local Python environment.
 """
 
+import random
 import time
 import pickle
 
@@ -151,16 +152,18 @@ def extract_stats(soup: BeautifulSoup):
 def main():
     print("Running the extract script")
     resorts_page = get_resorts_page()
+
     lists_of_region_links = [extract_region_links(resorts_page, id) for id in region_ids]
     region_links = sum(lists_of_region_links, [])
 
-    # Slice region_links for faster_testing
-    region_pages = [get_region_page(link) for link in region_links[:2]]
+    region_pages = [get_region_page(link) for link in region_links]
     lists_of_area_links = [extract_area_links(page) for page in region_pages]
     area_links = sum(lists_of_area_links, [])
 
-    # Slice area_links for faster testing
-    area_pages = [get_area_page(link) for link in area_links[:5]]
+    # Take sample of links for testing purposes
+    # area_links = random.sample(area_links, 50)
+
+    area_pages = [get_area_page(link) for link in area_links]
     raw_data = [extract_stats(page) for page in area_pages]
 
     pickle.dump(raw_data, open('./data/extract_output.pkl', 'wb'))

@@ -36,6 +36,8 @@ def create_db():
                     trails INTEGER,
                     acres INTEGER,
                     snowmaking INTEGER,
+                    longest_run REAL,
+                    state TEXT,
                     latitude REAL,
                     longitude REAL
                     );""")
@@ -58,13 +60,13 @@ def insert_data(data):
     connection = sqlite3.connect(DB_PATH)
     cursor = connection.cursor()
     cursor.executemany("""INSERT INTO areas (name, vertical, base, summit, snowfall, trails,
-                    acres, snowmaking, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);""", data)
+                    acres, snowmaking, longest_run, state, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);""", data)
     connection.commit()
     connection.close()
 
 def main():
     print("Running the load script")
-    cleaned_data = pickle.load(open('../data/transform_output.pkl', 'rb'))
+    cleaned_data = pickle.load(open('./data/transform_output.pkl', 'rb'))
     create_db()
     insert_data(cleaned_data)
     print("The processed data has been loaded into the database")
