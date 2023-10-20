@@ -10,7 +10,7 @@ Here's a screenshot of the current dashboard:
 
 1. The scripts in the `etl` folder are used to extract, transform and load the data. The data is scraped from SkiCentral.com, processed into the proper formats and stored in a local SQLite database.
 
-2. The data is visualized via a Streamlit dashboard. [It is hosted here](https://github.com/ty-shaikh/ski-areas).
+2. The data is visualized via a Streamlit dashboard. [It is hosted here](https://ski-areas-fzcvtcle5zedgqkkppkz5w.streamlit.app/).
 
 ![Data Pipeline](./imgs/pipeline.jpg)
 

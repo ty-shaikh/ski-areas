@@ -8,3 +8,4 @@ python-dotenv==1.0.0
 Requests==2.31.0
 streamlit==1.27.2
 streamlit_folium==0.15.0
+streamlit-aggrid==0.3.4
