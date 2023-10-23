@@ -20,7 +20,7 @@ with st.sidebar:
     snow_to_filter = st.slider('Average Snowfall (inches)', 0, 500, 0)
     snowmaking_to_filter = st.slider('Snowmaking (%)', 0, 100, 0)
 
-m = folium.Map(location=(42.2903, -74.6532), zoom_start=6, tiles="Stamen Terrain")
+m = folium.Map(location=(42.2903, -74.6532), zoom_start=6, tiles="Cartodb Positron")
 
 # (id, name, vertical, base, summit, snowfall, trails, acres, snowmaking,
 #   longest_run, state, latitude, longitude)
