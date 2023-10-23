@@ -20,7 +20,13 @@ with st.sidebar:
     snow_to_filter = st.slider('Average Snowfall (inches)', 0, 500, 0)
     snowmaking_to_filter = st.slider('Snowmaking (%)', 0, 100, 0)
 
-m = folium.Map(location=(42.2903, -74.6532), zoom_start=6, tiles="Cartodb Positron")
+attr = """Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)"""
+
+tiles = "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+
+m = folium.Map(location=(42.2903, -74.6532), zoom_start=6, tiles=tiles, attr=attr)
+
+# m = folium.Map(location=(42.2903, -74.6532), zoom_start=6, tiles="Cartodb Positron")
 
 # (id, name, vertical, base, summit, snowfall, trails, acres, snowmaking,
 #   longest_run, state, latitude, longitude)
